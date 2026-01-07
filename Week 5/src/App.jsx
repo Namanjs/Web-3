@@ -13,19 +13,25 @@ import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import { Airdrop } from './Componenets/Airdrop.jsx';
 import { ShowSolBalance } from './Componenets/Balance.jsx';
+import { SignMessage } from './Componenets/SignMessage.jsx';
+import { SendTokens } from './Componenets/SendSolana.jsx';
 
 function App() {
 
   return (
     <>
-      <ConnectionProvider endpoint={"https://solana-devnet.g.alchemy.com/v2/Ab7cUbdKhJ4q354mWxoNQ"}>
+      <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
             <WalletMultiButton />
             <WalletDisconnectButton />
             { /* Your app's components go here, nested within the context providers. */}
+
             <Airdrop/>
             <ShowSolBalance/>
+            <SignMessage/>
+            <SendTokens/>
+
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>
